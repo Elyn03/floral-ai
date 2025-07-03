@@ -10,25 +10,25 @@
     <div class="container">
         <header>
             <h1>🌻​ Floral IA 🌻​</h1>
-            <p>Télécharcher une image de fleur pour identifier la fleur avec l'IA</p>
+            <p>Identifier une fleur avec l'IA</p>
         </header>
 
-        <form id="uploadForm" action="" method="POST" enctype="multipart/form-data">
+        <div id="uploadForm" class="upload-image">
             <label for="imageUpload" class="upload-label" style="display: block; cursor: pointer; text-align: center; padding: 1rem; border: 2px dashed #34d399; border-radius: 8px; color: #065f46;">
                 <input type="file" id="imageUpload" name="file" accept="image/*" required style="display:none;" />
                 <span id="label-text">Choisir une image</span>
                 <img id="preview" src="" alt="Image preview" />
             </label>
-            <button type="submit">Identifier</button>
-        </form>
+            <button id="identify-btn">Identifier</button>
+        </div>
 
         <section id="result" class="hidden">
             <h2>Prediction Result:</h2>
             <p id="prediction"></p>
-            <img id="preview" src="#" alt="Uploaded Image" />
         </section>
     </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
