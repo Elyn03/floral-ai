@@ -70,8 +70,10 @@ button {
 	cursor: pointer;
 }
 
-button:hover {
- 	 background-color: #059669;
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 #result {

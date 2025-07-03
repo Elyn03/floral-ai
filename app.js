@@ -18,6 +18,7 @@ async function loadModel() {
         // Load the ONNX model
         session = await ort.InferenceSession.create('flower_classifier.onnx');
         console.log("Model loaded successfully");
+        idenfityButton.disabled = false;
     } catch (error) {
         console.error("Error loading model:", error);   
     }
@@ -80,7 +81,7 @@ idenfityButton.addEventListener("click", async () => {
           }
         }
 
-        predictionText.textContent = `🌸 ${labels[maxIdx]}`;
+        predictionText.textContent = `🍀​ ${labels[maxIdx]} 🍀​`;
         if (maxVal < 1) {
             predictionText.textContent = "Pas trouvé";
         }
