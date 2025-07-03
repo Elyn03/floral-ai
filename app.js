@@ -84,7 +84,7 @@ idenfityButton.addEventListener("click", async () => {
 
 
 async function preprocessImage(imageElement) {
-    const size = 128;
+    const size = 256; // <-- ici la correction
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     canvas.width = size;
