@@ -13,4 +13,5 @@ Pour lui en faire reconnaître plus, il vous faudra :
 - Supprimer `flower_classifier.onnx` et regénérer le fichier en runnant la dernière commande dans `torch.ipynb`
 - Modifier la constante `labels` dans `app.js` en y ajoutant tous les noms de fleurs 
 
-Dans le ficher `torch.ipynb`, l'IA est entrainé dans 
+### Auteur
+Elyn03
