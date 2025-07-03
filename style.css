@@ -26,8 +26,8 @@ body {
 }
 
 header {
-  margin-bottom: 2rem;
-  text-align: center;
+  	margin-bottom: 2rem;
+  	text-align: center;
 }
 
 .upload-image {
@@ -60,32 +60,37 @@ input[type="file"] {
 }
 
 button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #10b981;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+	width: 100%;
+	padding: 0.75rem;
+	background-color: #10b981;
+	color: white;
+	font-size: 1rem;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
 }
 
 button:hover {
-  background-color: #059669;
+ 	 background-color: #059669;
 }
 
 #result {
-  margin-top: 2rem;
-  text-align: center;
+	margin-top: 2rem;
+	text-align: center;
 }
 
 #result img {
-  margin-top: 1rem;
-  max-width: 100%;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+	margin-top: 1rem;
+	max-width: 100%;
+	border-radius: 8px;
+	border: 1px solid #ccc;
 }
 
 .hidden {
-  display: none;
+  	display: none;
+}
+
+.copyright {
+	margin-top: 2rem;
+	text-align: center;
 }

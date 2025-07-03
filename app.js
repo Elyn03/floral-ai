@@ -12,25 +12,7 @@ const labels = [
     "tulip",
 ]
 
-// UPLOAD IMAGE AND PREVIEW
-imageUpload.addEventListener('change', () => {
-    const file = imageUpload.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = () => {
-            preview.src = reader.result;
-            preview.style.display = 'block';
-            labelText.style.display = 'none';  // Hide the "Choisir une image" text when image is shown
-        };
-        reader.readAsDataURL(file);
-    } else {
-        preview.src = "";
-        preview.style.display = 'none';
-        labelText.style.display = 'inline';  // Show the text if no image
-    }
-});
-
-
+// LOAD ONNX MODEL
 async function loadModel() {
     try {
         // Load the ONNX model
@@ -40,8 +22,25 @@ async function loadModel() {
         console.error("Error loading model:", error);   
     }
 }
-
 loadModel();
+
+// UPLOAD IMAGE AND PREVIEW
+imageUpload.addEventListener('change', () => {
+    const file = imageUpload.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            preview.src = reader.result;
+            preview.style.display = 'block';
+            labelText.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+        preview.style.display = 'none';
+        labelText.style.display = 'inline';
+    }
+});
 
 // IDENTIFY BUTTON CLICK EVENT
 idenfityButton.addEventListener("click", async () => {
@@ -50,6 +49,12 @@ idenfityButton.addEventListener("click", async () => {
         alert("Veuillez choisir une image avant d'identifier !");
         return;
     }
+    if (!session) {
+        console.log("Model not loaded");
+        alert("Le modèle n'est pas encore chargé. Veuillez patienter.");
+        return;
+    }
+
     predictionText.textContent = 'Prédiction en cours...';
     result.classList.remove("hidden");
 
@@ -76,6 +81,10 @@ idenfityButton.addEventListener("click", async () => {
         }
 
         predictionText.textContent = `🌸 ${labels[maxIdx]}`;
+        if (maxVal < 1) {
+            predictionText.textContent = "Pas trouvé";
+        }
+
     } catch (error) {
         console.error(error);
         predictionText.textContent = "Erreur"
@@ -84,7 +93,7 @@ idenfityButton.addEventListener("click", async () => {
 
 
 async function preprocessImage(imageElement) {
-    const size = 256; // <-- ici la correction
+    const size = 256;
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     canvas.width = size;
