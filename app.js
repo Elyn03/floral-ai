@@ -16,7 +16,7 @@ const labels = [
 async function loadModel() {
     try {
         // Load the ONNX model
-        session = await ort.InferenceSession.create('flower_classifier_1.onnx');
+        session = await ort.InferenceSession.create('flower_classifier_2.onnx');
         console.log("Model loaded successfully");
         idenfityButton.disabled = false;
     } catch (error) {
